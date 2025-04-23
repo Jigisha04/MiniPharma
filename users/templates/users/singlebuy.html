@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% comment %} {% extends 'core/base.html' %} {% endcomment %}
+{% block title %}My Cart{% endblock title %}
+{% load static %}
+
+{% block content %}
+
+{% include 'core/header.html' with p=userdata %}
+
+{% if health %}
+
+<div class="container">
+<div class="row">
+
+    <div class="col-sm-4">
+        <!-- <img src="{% static myItems.mimg %}" alt="fruits" class="img-fluid"> -->
+        <img src="{{ myItems.mimg.url }}" alt="Medicines Image" class="img-fluid">
+    </div>
+
+    <div class="col-sm-8 ">
+            <h1 class="text-dark alert-primary mt-3 mx-1">{{myItems.mname}}</h1>    
+            <h3 class="text-dark alert-info mt-3 mx-1">{{myItems.minfo}}</h1>
+                <h3 class="text-dark alert-info mt-3 mx-1">  ₹ {{myItems.mprice}} / {{myItems.mamm}}</h3>
+                <a href="/user/confirm/buy/" class="btn btn-primary">Confirm Buy</a>  </div>
+</div>
+
+</div>
+
+{% else %}
+
+<div class="container">
+    <div class="row">
+    <h1>{{myitems.mimg}}</h1>
+        <div class="col-sm-4">
+            <!-- <img src="{% static myItems.himg %}" alt="fruits" class="img-fluid"> -->
+            <img src="{{ myItems.himg.url }}" alt="Health Products" class="img-fluid">
+        </div>
+        <div class="col-sm-8 ">
+            <h1 class="text-dark alert-primary mt-3 mx-1">{{myItems.hname}}</h1>
+            <h3 class="text-dark alert-info mt-3 mx-1">{{myItems.hinfo}}</h1>
+            <h3 class="text-dark alert-info mt-3 mx-1">  ₹ {{myItems.hprice}} / {{myItems.hamm}}</h3>
+                
+            <a href="/user/confirm/buy/" class="btn btn-primary">Confirm Buy</a>      </div>
+    </div>
+    
+    </div>
+{% endif %}
+
+
+
+
+{% endblock content %}

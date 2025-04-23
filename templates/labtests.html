@@ -1,0 +1,77 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}MiniPharma Medicines{% endblock title %}
+
+{% block link %}
+{{block.super}}
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock link %}
+
+
+{% block content %}
+
+{% include 'core/header.html' with p=userdata  %}
+<div class="container my-5">
+    <h2 class="text-center text-primary mb-4"><i class="fas fa-vials"></i> Book a Lab Test</h2>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'img/bloodTest.jpg' %}" class="card-img-top" alt="Blood Test" width="200px" height="200px">
+                <div class="card-body">
+                    <h5 class="card-title">Blood Test</h5>
+                    <p class="card-text">Comprehensive blood panel for checking various health indicators.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'img/x-ray.jpg' %}" class="card-img-top" alt="X-Ray" width="200px" height="200px">
+                <div class="card-body">
+                    <h5 class="card-title">X-Ray</h5>
+                    <p class="card-text">Digital X-ray imaging for bone, chest, and more.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="{% static 'img/mri_scan.jpg' %}" class="card-img-top" alt="MRI Scan" width="200px" height="200px">
+                <div class="card-body">
+                    <h5 class="card-title">MRI Scan</h5>
+                    <p class="card-text">Magnetic resonance imaging for brain and soft tissues.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-4 shadow-sm">
+        <h4 class="mb-3">Book Your Test Now</h4>
+        <form onsubmit="event.preventDefault(); alert('Successfully booked the appointment for tests!'); this.reset();">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name:</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="test" class="form-label">Select Test:</label>
+                <select class="form-control" id="test" required>
+                    <option value="">--Choose a Test--</option>
+                    <option>Blood Test</option>
+                    <option>X-Ray</option>
+                    <option>MRI Scan</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Book Now</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

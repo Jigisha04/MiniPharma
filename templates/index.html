@@ -1,0 +1,217 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}MiniMarket{% endblock title %}
+
+{% block link %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock link %}
+
+{% block content %}
+
+{% include 'core/header.html' with p=userdata %}
+<!-- Slider Section -->
+<section class="slider_section position-relative">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active custom-bg">
+        <div class="d-flex align-items-center min-vh-100">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center">
+                <div class="img-box">
+                  <img src="{% static 'img/medicine.png' %}" alt="Medicine" class="img-fluid">
+                </div>
+              </div>
+              <div class="col-md-8 text-white">
+                <div class="detail-box">
+                  <h1>Welcome To Our <br><span>Online Medicine</span></h1>
+                  <p>At our pharmacy, we offer a wide range of medicines and health products to meet your needs. We ensure that all our products are genuine, safe, and of the highest quality. </p>
+
+                  <div><a href="#medicines" class="btn btn-dark">Buy Now</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item custom-bg">
+        <div class="d-flex align-items-center min-vh-100">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center">
+                <div class="img-box">
+                  <img src="{% static 'img/medicine.png' %}" alt="Medicine" class="img-fluid">
+                </div>
+              </div>
+              <div class="col-md-8 text-white">
+                <div class="detail-box">
+                  <h1>Trusted Pharmacy <br><span>Quick Delivery</span></h1>
+                  <p>We bring your medications to your doorstep quickly and securely. With our efficient delivery service, you can rest assured that your order will arrive safely and on time, no matter where you are.</p>
+                  <div><a href="#medicines" class="btn btn-dark">Order Now</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item custom-bg">
+        <div class="d-flex align-items-center min-vh-100">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-md-4 text-center">
+                <div class="img-box">
+                  <img src="{% static 'img/medicine.png' %}" alt="Medicine" class="img-fluid">
+                </div>
+              </div>
+              <div class="col-md-8 text-white">
+                <div class="detail-box">
+                  <h1>Affordable Health <br><span>For Everyone</span></h1>
+                  <p>Get the best prices on your health essentials at MiniMarket. We offer competitive prices, regular discounts, and special deals that help you save money while maintaining your health. </p>
+                  <div><a href="#medicines" class="btn btn-dark">Shop Now</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About Us Section with Two Stylish Cards -->
+<section class="container mt-5">
+  <div class="row justify-content-center text-center">
+    <!-- About Us Card -->
+    <div class="col-md-5 mb-4">
+      <div class="card shadow-lg h-100 border-light">
+        <img src="{% static 'img/about.jpg' %}" class="card-img-top" alt="About MiniPharma" height="200px">
+        <div class="card-body">
+          <h5 class="card-title text-primary">About MiniPharma</h5>
+          <p class="card-text text-muted">
+            Your trusted pharmacy, delivering medicines to your door in a few clicks. 
+            Browse, add to cart, and relax — we’ll handle the rest.
+          </p>
+          <p class="card-text text-muted">
+            Fast deliveries, genuine products, and expert advice—everything you need for your health.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reasons to Buy Card -->
+    <div class="col-md-5 mb-4">
+      <div class="card shadow-lg h-100 border-light">
+        <img src="{% static 'img/reasons.jpg' %}" class="card-img-top" alt="Reasons to Buy from MiniPharma" height="200px">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Why MiniPharma?</h5>
+          <p class="card-text text-muted">
+            39+ years of trust, fast deliveries, and top-quality medicines—always. 
+          </p>
+          <p class="card-text text-muted">
+            Get exclusive health credits, great deals, and personalized consultation at your fingertips.
+          </p>
+          <p class="card-text text-muted">
+            Fast, secure, and reliable — your health, delivered.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+   
+<!-- Medicines Section (Limited to 8 items) -->
+<section id="medicines" class="mt-5">
+  {% if medicines %}
+    <div class="row">
+      {% for i in medicines %}
+        {% if forloop.counter <= 8 %}
+          <div class="col-md-3 col-6 mb-4 d-flex justify-content-center">
+            <div class="card" style="width: 18rem; margin-right: 10px;">
+              <img class="card-img-top sabji" src="{{ i.mimg.url }}" alt="Card image cap" style="width: 100%; height: auto; max-height: 150px;">
+              <div class="card-body alert-success">
+                <h5 class="card-title">{{i.mname}}</h5>
+                <p class="card-text">
+                  <strong>₹ {{i.mprice}} /{{i.mamm}} </strong> {{i.minfo}}
+                </p>
+                <a href="/user/buysingle/{{i.id}}/medicines" class="btn btn-outline-success">Buy Now</a>
+                <a href="/user/mycart/{{i.id}}/{{i.mprice}}/{{i.mname}}/" class="btn btn-outline-dark"> <i class="fas fa-shopping-cart"></i> Cart</a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <h1>Sorry, No Data</h1>
+  {% endif %}
+</section>
+
+    
+
+  
+
+<!-- New Section with two rows for the health products -->
+<div class="container-fluid mt-2 mkbox" style="height: 300px;">
+  <!-- Your content can go here -->
+</div>
+
+<!-- Health Products Section with Grid -->
+<div class="container-fluid mt-3 grid-container mx-4">
+  {% if health %}
+    <div class="row">
+      {% for i in health %}
+      {% if forloop.counter <= 8 %}
+        <div class="col-md-3 col-6 mb-4 d-flex justify-content-center">
+          <div class="card mt-3" style="width: 18rem;">
+            <img class="card-img-top sabji" src="{{ i.himg.url }}" alt="Card image cap" height="200px">
+            <div class="card-body alert-success">
+              <h5 class="card-title">{{i.hname}}</h5>
+              <p class="card-text">
+                <strong>₹ {{i.hprice}} /{{i.hamm}} </strong> {{i.hinfo}}
+              </p>
+              <a href="/user/buysingle/{{i.id}}/health" class="btn btn-outline-success">Buy Now</a>
+              <a href="/user/mycart/{{i.id}}/{{i.hprice}}/{{i.hname}}" class="btn btn-outline-dark">
+                <i class="fas fa-shopping-cart"></i> Cart
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <h1>Sorry, No Data</h1>
+  {% endif %}
+</div>
+
+<!-- Footer Section with Clickable Image Map -->
+<footer class="mt-5 bg-dark text-white text-center py-4">
+  <div class="container">
+    <h5>Visit Our Store</h5>
+    <a href="https://maps.app.goo.gl/CgpstDXa1j46RTS86?g_st=aw" target="_blank">
+      <img src="{% static 'img/map.png' %}" alt="Store Location" class="img-fluid" width="100%" style="max-height: 250px; object-fit: cover;">
+    </a>
+    <p>MiniPharma, Your Trusted Pharmacy Partner</p>
+  </div>
+</footer>
+
+
+
+{% endblock content %}
