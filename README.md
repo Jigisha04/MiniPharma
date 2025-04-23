@@ -1,7 +1,7 @@
-# MiniMarket Super Market Project
+# MiniPharma Medical Store Project
 
 ## Introduction
-Welcome to the MiniMarket Super Market project! This project is built using Django and provides a basic framework for managing a supermarket's operations.
+Welcome to the MiniPharma Medical Store project! This project is built using Django and provides a basic framework for managing medical store's operations.
 
 ## Prerequisites
 Before you begin, ensure you have the following installed on your PC:
@@ -32,15 +32,6 @@ Follow these steps to run the project on your local machine:
 7. Open Your Browser Once the server is running, open your web browser.
 8. Access the Application In the URL bar, type the following address
    <pre>http://localhost:8000</pre>
-9. SuperUser Id and Password are  <b> minimarket </b>
-10. To access Admin portal type the address in ur browser.
-      <pre>http://localhost:8000/admin</pre> 
-
-    <hr>
-    Need Any Project Please contact at 8604470501 
 
 
-<!-- title reg no
-how its addressing the society
-technology
-future direction -->
+
